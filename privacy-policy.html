@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad - DoggiBogi Bot</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(114, 137, 218, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(153, 170, 181, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.15),
+                0 0 0 1px rgba(255,255,255,0.2);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid rgba(114, 137, 218, 0.2);
+        }
+        .bot-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            background: linear-gradient(45deg, #7289da, #99aab5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0;
+            background-image: url('https://images.unsplash.com/photo-1552053831-71594a27632d?w=200&h=200&fit=crop&crop=face&auto=format&q=80');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 
+                0 10px 30px rgba(114, 137, 218, 0.3),
+                0 0 0 4px rgba(255,255,255,0.2);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 2.8em;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .subtitle {
+            color: #7f8c8d;
+            margin-bottom: 0;
+            font-size: 1.3em;
+            font-weight: 300;
+        }
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(248,249,250,0.6) 100%);
+            border-radius: 15px;
+            border-left: 5px solid #7289da;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            backdrop-filter: blur(10px);
+        }
+        .section h2 {
+            color: #7289da;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .section p {
+            line-height: 1.8;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .section ul, .section ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+        .section li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+            color: #2c3e50;
+        }
+        .highlight {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(25, 135, 84, 0.1) 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #28a745;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.1);
+        }
+        .warning {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 152, 0, 0.1) 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #ffc107;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.1);
+        }
+        .danger {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(200, 35, 51, 0.1) 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #dc3545;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.1);
+        }
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 3px solid rgba(114, 137, 218, 0.2);
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+            background: linear-gradient(135deg, rgba(114, 137, 218, 0.05) 0%, rgba(153, 170, 181, 0.05) 100%);
+            border-radius: 15px;
+            padding: 25px;
+        }
+        .toc {
+            background: linear-gradient(135deg, rgba(114, 137, 218, 0.1) 0%, rgba(153, 170, 181, 0.1) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 1px solid rgba(114, 137, 218, 0.2);
+        }
+        .toc h3 {
+            color: #7289da;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc li {
+            margin-bottom: 8px;
+        }
+        .toc a {
+            color: #5a6c7d;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .toc a:hover {
+            color: #7289da;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255,255,255,0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .data-table th, .data-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(114, 137, 218, 0.2);
+        }
+        .data-table th {
+            background: linear-gradient(135deg, #7289da, #99aab5);
+            color: white;
+            font-weight: 600;
+        }
+        .data-table tr:hover {
+            background: rgba(114, 137, 218, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="bot-icon">🤖</div>
+            <h1>Política de Privacidad</h1>
+            <p class="subtitle">DoggiBogi Bot - Protección de Datos Personales</p>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Índice de Contenidos</h3>
+            <ul>
+                <li><a href="#seccion1">1. Información General</a></li>
+                <li><a href="#seccion2">2. Datos que Recopilamos</a></li>
+                <li><a href="#seccion3">3. Cómo Utilizamos sus Datos</a></li>
+                <li><a href="#seccion4">4. Base Legal para el Procesamiento</a></li>
+                <li><a href="#seccion5">5. Compartir Información</a></li>
+                <li><a href="#seccion6">6. Retención de Datos</a></li>
+                <li><a href="#seccion7">7. Sus Derechos</a></li>
+                <li><a href="#seccion8">8. Seguridad de los Datos</a></li>
+                <li><a href="#seccion9">9. Transferencias Internacionales</a></li>
+                <li><a href="#seccion10">10. Menores de Edad</a></li>
+                <li><a href="#seccion11">11. Cambios en esta Política</a></li>
+                <li><a href="#seccion12">12. Contacto</a></li>
+            </ul>
+        </div>
+
+        <div class="section" id="seccion1">
+            <h2>1. Información General</h2>
+            <p>Esta Política de Privacidad describe cómo DoggiBogi Bot ("nosotros", "nuestro" o "el bot") recopila, utiliza, almacena y protege su información personal cuando utiliza nuestro bot de Discord.</p>
+            <p><strong>Responsable del Tratamiento:</strong> Tari (Desarrollador Principal)</p>
+            <p><strong>Fecha de Vigencia:</strong> 24 de Septiembre, 2024</p>
+            <p><strong>Versión:</strong> 2.0</p>
+            <p>Al utilizar nuestro bot, usted acepta las prácticas descritas en esta política de privacidad. Si no está de acuerdo con alguna parte de esta política, no debe utilizar nuestro bot.</p>
+        </div>
+
+        <div class="section" id="seccion2">
+            <h2>2. Datos que Recopilamos</h2>
+            <p>Recopilamos diferentes tipos de información para proporcionar y mejorar nuestros servicios:</p>
+            
+            <h3>2.1 Información de Usuario de Discord</h3>
+            <ul>
+                <li><strong>ID de Usuario:</strong> Identificador único de Discord</li>
+                <li><strong>Nombre de Usuario:</strong> Nombre mostrado en Discord</li>
+                <li><strong>Avatar:</strong> Imagen de perfil de Discord</li>
+                <li><strong>Fecha de Creación de Cuenta:</strong> Cuándo se creó la cuenta de Discord</li>
+                <li><strong>Estado de Verificación:</strong> Si la cuenta está verificada</li>
+            </ul>
+
+            <h3>2.2 Información del Servidor</h3>
+            <ul>
+                <li><strong>ID del Servidor:</strong> Identificador único del servidor de Discord</li>
+                <li><strong>Nombre del Servidor:</strong> Nombre del servidor donde se utiliza el bot</li>
+                <li><strong>Configuraciones:</strong> Preferencias y configuraciones del servidor</li>
+                <li><strong>Roles y Permisos:</strong> Información sobre roles y permisos de usuarios</li>
+                <li><strong>Canales:</strong> Lista de canales donde el bot está activo</li>
+            </ul>
+
+            <h3>2.3 Datos de Actividad</h3>
+            <ul>
+                <li><strong>Comandos Utilizados:</strong> Qué comandos se ejecutan y con qué frecuencia</li>
+                <li><strong>Interacciones:</strong> Cómo los usuarios interactúan con el bot</li>
+                <li><strong>Métricas de Uso:</strong> Estadísticas de uso del bot</li>
+                <li><strong>Logs de Moderación:</strong> Acciones de moderación realizadas</li>
+            </ul>
+
+            <h3>2.4 Datos de Perfil Personalizado</h3>
+            <ul>
+                <li><strong>XP y Niveles:</strong> Puntos de experiencia y nivel del usuario</li>
+                <li><strong>Medallas:</strong> Medallas obtenidas por el usuario</li>
+                <li><strong>Biografía:</strong> Biografía personalizada del usuario</li>
+                <li><strong>Preferencias:</strong> Configuraciones personales del perfil</li>
+                <li><strong>Fondos:</strong> Fondos personalizados para el perfil</li>
+            </ul>
+
+            <h3>2.5 Mensajes Temporales (Sistema Snipe)</h3>
+            <ul>
+                <li><strong>Contenido de Mensajes:</strong> Texto de mensajes borrados</li>
+                <li><strong>Adjuntos:</strong> Archivos adjuntos a mensajes borrados</li>
+                <li><strong>Embeds:</strong> Embeds de mensajes borrados</li>
+                <li><strong>Timestamp:</strong> Hora de borrado del mensaje</li>
+            </ul>
+
+            <div class="warning">
+                <strong>⚠️ Importante:</strong> Los mensajes del sistema snipe se almacenan temporalmente y se eliminan automáticamente después de un período determinado para proteger la privacidad.
+            </div>
+        </div>
+
+        <div class="section" id="seccion3">
+            <h2>3. Cómo Utilizamos sus Datos</h2>
+            <p>Utilizamos la información recopilada para los siguientes propósitos:</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Propósito</th>
+                        <th>Datos Utilizados</th>
+                        <th>Base Legal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Proporcionar funcionalidades del bot</td>
+                        <td>ID de usuario, configuraciones</td>
+                        <td>Ejecución de contrato</td>
+                    </tr>
+                    <tr>
+                        <td>Sistema de moderación</td>
+                        <td>Logs de actividad, roles</td>
+                        <td>Interés legítimo</td>
+                    </tr>
+                    <tr>
+                        <td>Perfiles personalizados</td>
+                        <td>XP, medallas, biografía</td>
+                        <td>Consentimiento</td>
+                    </tr>
+                    <tr>
+                        <td>Mejorar el servicio</td>
+                        <td>Métricas de uso, comandos</td>
+                        <td>Interés legítimo</td>
+                    </tr>
+                    <tr>
+                        <td>Sistema snipe</td>
+                        <td>Mensajes temporales</td>
+                        <td>Consentimiento</td>
+                    </tr>
+                    <tr>
+                        <td>Estadísticas del servidor</td>
+                        <td>Datos agregados y anónimos</td>
+                        <td>Interés legítimo</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>3.1 Funcionalidades Específicas</h3>
+            <ul>
+                <li><strong>Sistema de XP:</strong> Para calcular niveles y progreso de usuarios</li>
+                <li><strong>Moderación:</strong> Para aplicar reglas y mantener la seguridad del servidor</li>
+                <li><strong>Perfiles:</strong> Para mostrar información personalizada de usuarios</li>
+                <li><strong>Logs:</strong> Para mantener registros de actividad y moderación</li>
+                <li><strong>Analytics:</strong> Para mejorar el rendimiento y funcionalidad del bot</li>
+            </ul>
+        </div>
+
+        <div class="section" id="seccion4">
+            <h2>4. Base Legal para el Procesamiento</h2>
+            <p>Procesamos sus datos personales basándonos en las siguientes bases legales:</p>
+
+            <h3>4.1 Ejecución de Contrato</h3>
+            <p>Procesamos datos necesarios para proporcionar las funcionalidades del bot según los términos de servicio acordados.</p>
+
+            <h3>4.2 Interés Legítimo</h3>
+            <p>Procesamos datos para:</p>
+            <ul>
+                <li>Mejorar la funcionalidad del bot</li>
+                <li>Mantener la seguridad del servicio</li>
+                <li>Prevenir abuso y actividades maliciosas</li>
+                <li>Generar estadísticas agregadas y anónimas</li>
+            </ul>
+
+            <h3>4.3 Consentimiento</h3>
+            <p>Para funcionalidades opcionales como:</p>
+            <ul>
+                <li>Perfiles personalizados</li>
+                <li>Sistema snipe</li>
+                <li>Configuraciones avanzadas</li>
+                <li>Datos de biografía personalizada</li>
+            </ul>
+
+            <div class="highlight">
+                <strong>🔒 Derecho de Retirada:</strong> Puede retirar su consentimiento en cualquier momento contactándonos o desactivando las funcionalidades correspondientes.
+            </div>
+        </div>
+
+        <div class="section" id="seccion5">
+            <h2>5. Compartir Información</h2>
+            <p>No vendemos, alquilamos ni compartimos su información personal con terceros, excepto en las siguientes circunstancias:</p>
+
+            <h3>5.1 Servicios de Terceros</h3>
+            <ul>
+                <li><strong>Discord API:</strong> Para funcionalidades básicas del bot</li>
+                <li><strong>Servicios de Hosting:</strong> Para almacenar datos de forma segura</li>
+                <li><strong>Servicios de Análisis:</strong> Para métricas agregadas y anónimas</li>
+            </ul>
+
+            <h3>5.2 Requisitos Legales</h3>
+            <p>Podemos divulgar información si es requerido por:</p>
+            <ul>
+                <li>Órdenes judiciales o procesos legales</li>
+                <li>Autoridades competentes</li>
+                <li>Protección de derechos legales</li>
+                <li>Prevención de actividades ilegales</li>
+            </ul>
+
+            <h3>5.3 Transferencias de Negocio</h3>
+            <p>En caso de fusión, adquisición o venta de activos, los datos pueden transferirse como parte de la transacción.</p>
+
+            <div class="warning">
+                <strong>⚠️ Protección de Datos:</strong> Todos los terceros con los que compartimos datos están obligados a mantener la confidencialidad y seguridad de la información.
+            </div>
+        </div>
+
+        <div class="section" id="seccion6">
+            <h2>6. Retención de Datos</h2>
+            <p>Conservamos sus datos personales durante diferentes períodos según el tipo de información:</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Tipo de Dato</th>
+                        <th>Período de Retención</th>
+                        <th>Razón</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Datos de perfil básico</td>
+                        <td>Mientras el bot esté en el servidor</td>
+                        <td>Funcionalidad del servicio</td>
+                    </tr>
+                    <tr>
+                        <td>Datos de XP y niveles</td>
+                        <td>Indefinidamente</td>
+                        <td>Progreso del usuario</td>
+                    </tr>
+                    <tr>
+                        <td>Logs de moderación</td>
+                        <td>1 año</td>
+                        <td>Seguridad y auditoría</td>
+                    </tr>
+                    <tr>
+                        <td>Mensajes snipe</td>
+                        <td>24 horas</td>
+                        <td>Funcionalidad temporal</td>
+                    </tr>
+                    <tr>
+                        <td>Métricas de uso</td>
+                        <td>2 años</td>
+                        <td>Análisis y mejora</td>
+                    </tr>
+                    <tr>
+                        <td>Datos de configuración</td>
+                        <td>Hasta eliminación del servidor</td>
+                        <td>Personalización</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Eliminación Automática:</strong> Los datos se eliminan automáticamente al finalizar el período de retención correspondiente.</p>
+        </div>
+
+        <div class="section" id="seccion7">
+            <h2>7. Sus Derechos</h2>
+            <p>Bajo el RGPD y otras leyes de protección de datos, usted tiene los siguientes derechos:</p>
+
+            <h3>7.1 Derecho de Acceso</h3>
+            <p>Puede solicitar información sobre qué datos personales tenemos sobre usted y cómo los utilizamos.</p>
+
+            <h3>7.2 Derecho de Rectificación</h3>
+            <p>Puede solicitar la corrección de datos inexactos o incompletos.</p>
+
+            <h3>7.3 Derecho de Supresión</h3>
+            <p>Puede solicitar la eliminación de sus datos personales en ciertas circunstancias.</p>
+
+            <h3>7.4 Derecho de Limitación</h3>
+            <p>Puede solicitar la limitación del procesamiento de sus datos en ciertas circunstancias.</p>
+
+            <h3>7.5 Derecho de Portabilidad</h3>
+            <p>Puede solicitar una copia de sus datos en un formato estructurado y legible.</p>
+
+            <h3>7.6 Derecho de Oposición</h3>
+            <p>Puede oponerse al procesamiento de sus datos basado en interés legítimo.</p>
+
+            <h3>7.7 Derechos Relativos a Decisiones Automatizadas</h3>
+            <p>Tiene derecho a no ser objeto de decisiones basadas únicamente en procesamiento automatizado.</p>
+
+            <div class="highlight">
+                <strong>📞 Ejercer sus Derechos:</strong> Para ejercer cualquiera de estos derechos, contacte con nosotros a través del bot o en nuestro servidor de Discord.
+            </div>
+        </div>
+
+        <div class="section" id="seccion8">
+            <h2>8. Seguridad de los Datos</h2>
+            <p>Implementamos medidas de seguridad técnicas y organizativas para proteger sus datos personales:</p>
+
+            <h3>8.1 Medidas Técnicas</h3>
+            <ul>
+                <li><strong>Encriptación:</strong> Datos encriptados en tránsito y en reposo</li>
+                <li><strong>Acceso Restringido:</strong> Solo personal autorizado puede acceder a los datos</li>
+                <li><strong>Monitoreo:</strong> Sistemas de monitoreo para detectar accesos no autorizados</li>
+                <li><strong>Copias de Seguridad:</strong> Respaldo regular de datos importantes</li>
+                <li><strong>Actualizaciones de Seguridad:</strong> Mantenimiento regular de sistemas</li>
+            </ul>
+
+            <h3>8.2 Medidas Organizativas</h3>
+            <ul>
+                <li><strong>Capacitación:</strong> Personal entrenado en protección de datos</li>
+                <li><strong>Políticas Internas:</strong> Procedimientos claros para el manejo de datos</li>
+                <li><strong>Auditorías Regulares:</strong> Revisiones periódicas de seguridad</li>
+                <li><strong>Respuesta a Incidentes:</strong> Plan de respuesta a violaciones de datos</li>
+            </ul>
+
+            <div class="warning">
+                <strong>⚠️ Limitaciones:</strong> Aunque implementamos medidas de seguridad robustas, ningún sistema es 100% seguro. Le notificaremos cualquier violación de datos que pueda afectar su información personal.
+            </div>
+        </div>
+
+        <div class="section" id="seccion9">
+            <h2>9. Transferencias Internacionales</h2>
+            <p>Sus datos pueden transferirse y procesarse en países fuera de su jurisdicción. En tales casos:</p>
+
+            <h3>9.1 Garantías Adecuadas</h3>
+            <ul>
+                <li>Decisiones de adecuación de la Comisión Europea</li>
+                <li>Cláusulas contractuales estándar</li>
+                <li>Certificaciones de privacidad reconocidas</li>
+                <li>Medidas de seguridad adicionales</li>
+            </ul>
+
+            <h3>9.2 Países de Destino</h3>
+            <p>Los datos pueden transferirse a países que ofrecen un nivel adecuado de protección de datos o con las garantías apropiadas.</p>
+
+            <div class="highlight">
+                <strong>🌍 Protección Global:</strong> Todas las transferencias internacionales se realizan con las garantías de protección de datos apropiadas.
+            </div>
+        </div>
+
+        <div class="section" id="seccion10">
+            <h2>10. Menores de Edad</h2>
+            <p>Nuestro bot no está dirigido a menores de 13 años. No recopilamos conscientemente información personal de menores de 13 años.</p>
+
+            <h3>10.1 Política para Menores</h3>
+            <ul>
+                <li><strong>Verificación de Edad:</strong> No verificamos activamente la edad de los usuarios</li>
+                <li><strong>Eliminación de Datos:</strong> Eliminaremos datos de menores si se identifican</li>
+                <li><strong>Consentimiento Parental:</strong> Requerimos consentimiento parental para menores de 16 años</li>
+                <li><strong>Supervisión:</strong> Recomendamos supervisión parental del uso del bot</li>
+            </ul>
+
+            <h3>10.2 Responsabilidades de los Padres</h3>
+            <p>Los padres y tutores son responsables de supervisar el uso del bot por parte de sus hijos menores.</p>
+
+            <div class="danger">
+                <strong>🚨 Reporte de Menores:</strong> Si descubrimos que hemos recopilado datos de un menor sin consentimiento parental, eliminaremos inmediatamente dicha información.
+            </div>
+        </div>
+
+        <div class="section" id="seccion11">
+            <h2>11. Cambios en esta Política</h2>
+            <p>Podemos actualizar esta Política de Privacidad ocasionalmente. Los cambios se notificarán de la siguiente manera:</p>
+
+            <h3>11.1 Notificación de Cambios</h3>
+            <ul>
+                <li><strong>Actualización de Fecha:</strong> Cambio de fecha en la parte superior de esta política</li>
+                <li><strong>Notificación en Bot:</strong> Aviso a través del bot cuando sea posible</li>
+                <li><strong>Servidor de Discord:</strong> Anuncio en nuestro servidor oficial</li>
+                <li><strong>Email:</strong> Notificación por correo si tenemos su dirección</li>
+            </ul>
+
+            <h3>11.2 Aceptación de Cambios</h3>
+            <p>El uso continuado del bot después de los cambios constituye aceptación de la nueva política.</p>
+
+            <h3>11.3 Versiones Anteriores</h3>
+            <p>Las versiones anteriores de esta política están disponibles bajo solicitud para referencia.</p>
+        </div>
+
+        <div class="section" id="seccion12">
+            <h2>12. Contacto</h2>
+            <p>Si tiene preguntas sobre esta Política de Privacidad o desea ejercer sus derechos, puede contactarnos:</p>
+
+            <h3>12.1 Información de Contacto</h3>
+            <ul>
+                <li><strong>Desarrollador Principal:</strong> Tari</li>
+                <li><strong>Bot de Discord:</strong> DoggiBogi#6273</li>
+                <li><strong>Servidor de Soporte:</strong> Disponible a través del bot</li>
+                <li><strong>Comando de Contacto:</strong> Utilice comandos de ayuda en el bot</li>
+            </ul>
+
+            <h3>12.2 Tiempo de Respuesta</h3>
+            <p>Nos esforzamos por responder a todas las consultas dentro de 48-72 horas.</p>
+
+            <h3>12.3 Autoridad de Control</h3>
+            <p>También puede presentar una queja ante la autoridad de protección de datos de su jurisdicción si considera que sus derechos no han sido respetados.</p>
+
+            <div class="highlight">
+                <strong>📞 Soporte Disponible:</strong> Estamos comprometidos a resolver cualquier inquietud sobre privacidad de manera rápida y efectiva.
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Última actualización:</strong> 24 de Septiembre, 2024</p>
+            <p><strong>Versión:</strong> 2.0</p>
+            <p>© 2024 DoggiBogi Bot. Todos los derechos reservados.</p>
+            <p>Desarrollado con ❤️ para la comunidad de Discord</p>
+            <p><strong>Developer:</strong> Tari</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos de Servicio - DoggiBogi Bot</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(114, 137, 218, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(153, 170, 181, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.15),
+                0 0 0 1px rgba(255,255,255,0.2);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid rgba(114, 137, 218, 0.2);
+        }
+        .bot-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            background: linear-gradient(45deg, #7289da, #99aab5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0;
+            background-image: url('https://images.unsplash.com/photo-1552053831-71594a27632d?w=200&h=200&fit=crop&crop=face&auto=format&q=80');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 
+                0 10px 30px rgba(114, 137, 218, 0.3),
+                0 0 0 4px rgba(255,255,255,0.2);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 2.8em;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .subtitle {
+            color: #7f8c8d;
+            margin-bottom: 0;
+            font-size: 1.3em;
+            font-weight: 300;
+        }
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(248,249,250,0.6) 100%);
+            border-radius: 15px;
+            border-left: 5px solid #7289da;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            backdrop-filter: blur(10px);
+        }
+        .section h2 {
+            color: #7289da;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .section p {
+            line-height: 1.8;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .section ul, .section ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+        .section li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+            color: #2c3e50;
+        }
+        .highlight {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(25, 135, 84, 0.1) 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #28a745;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.1);
+        }
+        .warning {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 152, 0, 0.1) 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #ffc107;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.1);
+        }
+        .danger {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(200, 35, 51, 0.1) 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #dc3545;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.1);
+        }
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 3px solid rgba(114, 137, 218, 0.2);
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+            background: linear-gradient(135deg, rgba(114, 137, 218, 0.05) 0%, rgba(153, 170, 181, 0.05) 100%);
+            border-radius: 15px;
+            padding: 25px;
+        }
+        .toc {
+            background: linear-gradient(135deg, rgba(114, 137, 218, 0.1) 0%, rgba(153, 170, 181, 0.1) 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 1px solid rgba(114, 137, 218, 0.2);
+        }
+        .toc h3 {
+            color: #7289da;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc li {
+            margin-bottom: 8px;
+        }
+        .toc a {
+            color: #5a6c7d;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .toc a:hover {
+            color: #7289da;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="bot-icon">🤖</div>
+            <h1>Términos de Servicio</h1>
+            <p class="subtitle">DoggiBogi Bot - Discord Bot Oficial</p>
+        </div>
+
+        <div class="toc">
+            <h3>📋 Índice de Contenidos</h3>
+            <ul>
+                <li><a href="#seccion1">1. Aceptación de los Términos</a></li>
+                <li><a href="#seccion2">2. Descripción del Servicio</a></li>
+                <li><a href="#seccion3">3. Uso Aceptable</a></li>
+                <li><a href="#seccion4">4. Privacidad y Protección de Datos</a></li>
+                <li><a href="#seccion5">5. Disponibilidad del Servicio</a></li>
+                <li><a href="#seccion6">6. Modificaciones y Actualizaciones</a></li>
+                <li><a href="#seccion7">7. Limitación de Responsabilidad</a></li>
+                <li><a href="#seccion8">8. Propiedad Intelectual</a></li>
+                <li><a href="#seccion9">9. Terminación del Servicio</a></li>
+                <li><a href="#seccion10">10. Ley Aplicable y Jurisdicción</a></li>
+            </ul>
+        </div>
+
+        <div class="section" id="seccion1">
+            <h2>1. Aceptación de los Términos</h2>
+            <p>Al utilizar el bot DoggiBogi en Discord, usted acepta estos términos de servicio en su totalidad. Si no está de acuerdo con alguno de estos términos, no debe utilizar el bot. Estos términos constituyen un acuerdo legal vinculante entre usted y los desarrolladores de DoggiBogi.</p>
+            <p>El uso del bot implica que usted ha leído, entendido y aceptado estos términos. Si usted es menor de edad, debe obtener el consentimiento de sus padres o tutores legales antes de utilizar el servicio.</p>
+            <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Los cambios entrarán en vigor inmediatamente después de su publicación en esta página. Es su responsabilidad revisar periódicamente estos términos para estar informado de cualquier cambio.</p>
+        </div>
+
+        <div class="section" id="seccion2">
+            <h2>2. Descripción del Servicio</h2>
+            <p>DoggiBogi es un bot de Discord multifuncional que proporciona las siguientes funcionalidades:</p>
+            <ul>
+                <li><strong>Sistema de Moderación Avanzado:</strong> Herramientas de moderación incluyendo sistema de advertencias, expulsiones, baneos, softbans, gestión de roles, logs de moderación y sistema de inmunidad.</li>
+                <li><strong>Sistema de Perfiles Personalizados:</strong> Perfiles únicos con sistema de XP automático, niveles dinámicos, medallas personalizables, biografías personalizadas, fondos exclusivos para boosters y sistema de ranking.</li>
+                <li><strong>Herramientas de Utilidades:</strong> Comandos útiles como obtención de IDs de emojis, información del servidor, información de usuarios, generación de colores aleatorios y sistema de invitación del bot.</li>
+                <li><strong>Sistema de Administración:</strong> Herramientas de configuración avanzadas para administradores, gestión de prefijos, configuración de canales de XP, sistema de logs de nivel y herramientas de gestión del servidor.</li>
+                <li><strong>Sistema Snipe:</strong> Recuperación temporal de mensajes borrados con almacenamiento seguro y permisos especiales para usuarios con privilegios.</li>
+                <li><strong>Sistema de Entretenimiento:</strong> Comandos de diversión, sistema de inventario, códigos de recompensa, medallas automáticas y actividades interactivas para la comunidad.</li>
+                <li><strong>Analytics y Estadísticas:</strong> Métricas detalladas del servidor, logs de actividad, sistema de ranking y estadísticas de uso en tiempo real.</li>
+            </ul>
+            <p>El bot está diseñado para mejorar la experiencia de los usuarios en Discord proporcionando herramientas útiles y entretenimiento para las comunidades.</p>
+        </div>
+
+        <div class="section" id="seccion3">
+            <h2>3. Uso Aceptable</h2>
+            <p>Usted se compromete a utilizar el bot de manera responsable y de acuerdo con las siguientes condiciones:</p>
+            <ul>
+                <li><strong>Cumplimiento Legal:</strong> Cumplir con todas las leyes y regulaciones aplicables en su jurisdicción.</li>
+                <li><strong>Términos de Discord:</strong> Respetar los términos de servicio de Discord y sus políticas de uso.</li>
+                <li><strong>Reglas del Servidor:</strong> Seguir las reglas establecidas por los administradores del servidor donde se utiliza el bot.</li>
+                <li><strong>Uso Ético:</strong> No utilizar el bot para actividades ilegales, dañinas, abusivas o que violen los derechos de otros usuarios.</li>
+                <li><strong>Protección del Bot:</strong> No intentar explotar vulnerabilidades, hacer ingeniería inversa o interferir con el funcionamiento del bot.</li>
+                <li><strong>Respeto a la Comunidad:</strong> Mantener un comportamiento respetuoso hacia otros usuarios y moderadores.</li>
+                <li><strong>Uso Personal:</strong> Utilizar el bot únicamente para fines legítimos y no comerciales sin autorización previa.</li>
+            </ul>
+            <div class="warning">
+                <strong>⚠️ Uso Prohibido:</strong> Está estrictamente prohibido utilizar el bot para spam, acoso, distribución de contenido inapropiado, actividades fraudulentas o cualquier acción que pueda dañar la reputación del bot o de sus desarrolladores.
+            </div>
+        </div>
+
+        <div class="section" id="seccion4">
+            <h2>4. Privacidad y Protección de Datos</h2>
+            <p>Nos comprometemos a proteger su privacidad y manejar sus datos de manera responsable. El bot puede recopilar y almacenar los siguientes tipos de datos:</p>
+            <ul>
+                <li><strong>Datos de Usuario:</strong> ID de Discord, nombre de usuario, avatar, información de perfil y preferencias de usuario.</li>
+                <li><strong>Datos de Servidor:</strong> ID del servidor, configuraciones, roles, canales y configuraciones de moderación.</li>
+                <li><strong>Datos de Actividad:</strong> Comandos utilizados, frecuencia de uso, estadísticas de participación y métricas de interacción.</li>
+                <li><strong>Datos de Moderación:</strong> Historial de advertencias, acciones de moderación, logs de actividad y registros de infracciones.</li>
+                <li><strong>Datos de Perfil:</strong> XP, niveles, medallas, biografías personalizadas, configuraciones de perfil y preferencias de visualización.</li>
+                <li><strong>Mensajes Temporales:</strong> Contenido de mensajes borrados (para funcionalidad snipe) que se almacenan temporalmente y se eliminan automáticamente.</li>
+            </ul>
+            <p><strong>Uso de Datos:</strong> Los datos recopilados se utilizan exclusivamente para:</p>
+            <ul>
+                <li>Proporcionar las funcionalidades del bot</li>
+                <li>Mantener perfiles de usuario y sistemas de progreso</li>
+                <li>Gestionar sistemas de moderación y seguridad</li>
+                <li>Mejorar el rendimiento y funcionalidad del bot</li>
+                <li>Generar estadísticas y analytics del servidor</li>
+            </ul>
+            <div class="highlight">
+                <strong>🔒 Compromiso de Privacidad:</strong> No vendemos, alquilamos ni compartimos sus datos personales con terceros. Todos los datos se almacenan de forma segura y se utilizan únicamente para el funcionamiento del bot.
+            </div>
+        </div>
+
+        <div class="section" id="seccion5">
+            <h2>5. Disponibilidad del Servicio</h2>
+            <p>Nos esforzamos por mantener el bot disponible 24/7, pero no podemos garantizar:</p>
+            <ul>
+                <li><strong>Disponibilidad Ininterrumpida:</strong> El servicio puede experimentar interrupciones debido a mantenimiento, actualizaciones o problemas técnicos.</li>
+                <li><strong>Ausencia de Errores:</strong> El bot puede experimentar bugs o errores ocasionales que se corrigen tan pronto como sea posible.</li>
+                <li><strong>Compatibilidad Futura:</strong> Garantía de compatibilidad con futuras actualizaciones de Discord o cambios en la API.</li>
+                <li><strong>Rendimiento Óptimo:</strong> El rendimiento puede variar dependiendo de la carga del servidor y otros factores externos.</li>
+            </ul>
+            <p><strong>Mantenimiento Programado:</strong> Notificaremos con anticipación cualquier mantenimiento programado que pueda afectar la disponibilidad del servicio.</p>
+            <p><strong>Actualizaciones:</strong> El bot se actualiza regularmente para mejorar la funcionalidad, seguridad y rendimiento. Las actualizaciones pueden incluir nuevas características o cambios en funcionalidades existentes.</p>
+        </div>
+
+        <div class="section" id="seccion6">
+            <h2>6. Modificaciones y Actualizaciones</h2>
+            <p>Nos reservamos el derecho de modificar, actualizar o descontinuar el bot en cualquier momento. Esto incluye:</p>
+            <ul>
+                <li><strong>Actualizaciones de Funcionalidades:</strong> Agregar, modificar o eliminar comandos y características del bot.</li>
+                <li><strong>Cambios en la Interfaz:</strong> Modificar la apariencia, comportamiento o estructura de los comandos.</li>
+                <li><strong>Mejoras de Seguridad:</strong> Implementar medidas de seguridad adicionales o cambios en los permisos requeridos.</li>
+                <li><strong>Optimizaciones de Rendimiento:</strong> Mejoras en el rendimiento que pueden afectar la funcionalidad temporalmente.</li>
+                <li><strong>Cambios en los Términos:</strong> Modificar estos términos de servicio con notificación previa razonable.</li>
+            </ul>
+            <p><strong>Notificación de Cambios:</strong> Los cambios significativos se notificarán a través del bot, el servidor de soporte o esta página web.</p>
+            <p><strong>Retrocompatibilidad:</strong> Nos esforzamos por mantener la compatibilidad con configuraciones existentes, pero no podemos garantizar que todas las funcionalidades permanezcan inalteradas.</p>
+        </div>
+
+        <div class="section" id="seccion7">
+            <h2>7. Limitación de Responsabilidad</h2>
+            <p>El bot se proporciona "tal como está" sin garantías de ningún tipo. No seremos responsables por:</p>
+            <ul>
+                <li><strong>Pérdida de Datos:</strong> Pérdida de configuraciones, datos de usuario o información almacenada por el bot.</li>
+                <li><strong>Interrupciones del Servicio:</strong> Tiempo de inactividad, interrupciones o problemas de conectividad.</li>
+                <li><strong>Daños Indirectos:</strong> Daños consecuenciales, incidentales o especiales que puedan resultar del uso del bot.</li>
+                <li><strong>Pérdidas Comerciales:</strong> Pérdida de beneficios, datos comerciales o oportunidades de negocio.</li>
+                <li><strong>Problemas de Compatibilidad:</strong> Incompatibilidades con otros bots, aplicaciones o servicios de Discord.</li>
+                <li><strong>Acciones de Terceros:</strong> Comportamiento de otros usuarios o acciones de Discord que puedan afectar el funcionamiento del bot.</li>
+            </ul>
+            <div class="danger">
+                <strong>🚨 Limitación de Daños:</strong> En ningún caso nuestra responsabilidad total excederá el costo de los servicios proporcionados o $100 USD, lo que sea menor.
+            </div>
+        </div>
+
+        <div class="section" id="seccion8">
+            <h2>8. Propiedad Intelectual</h2>
+            <p>Todo el contenido, código, diseño y funcionalidades del bot DoggiBogi son propiedad exclusiva de sus desarrolladores y están protegidos por las leyes de propiedad intelectual.</p>
+            <ul>
+                <li><strong>Derechos de Autor:</strong> El código fuente, diseño y funcionalidades están protegidos por derechos de autor.</li>
+                <li><strong>Marcas Comerciales:</strong> El nombre "DoggiBogi" y los elementos distintivos del bot son marcas comerciales protegidas.</li>
+                <li><strong>Uso No Autorizado:</strong> Está prohibido copiar, modificar, distribuir o crear trabajos derivados sin autorización expresa.</li>
+                <li><strong>Respeto a Terceros:</strong> Respetamos los derechos de propiedad intelectual de terceros y esperamos lo mismo de nuestros usuarios.</li>
+            </ul>
+            <p><strong>Licencia de Uso:</strong> Al utilizar el bot, se le otorga una licencia limitada, no exclusiva y revocable para usar el servicio de acuerdo con estos términos.</p>
+        </div>
+
+        <div class="section" id="seccion9">
+            <h2>9. Terminación del Servicio</h2>
+            <p>Nos reservamos el derecho de terminar o suspender el acceso al bot en cualquier momento, con o sin causa, incluyendo pero no limitado a:</p>
+            <ul>
+                <li><strong>Violación de Términos:</strong> Uso del bot de manera que viole estos términos de servicio.</li>
+                <li><strong>Comportamiento Abusivo:</strong> Uso del bot para acoso, spam o actividades dañinas.</li>
+                <li><strong>Actividades Ilegales:</strong> Uso del bot para actividades ilegales o que violen las leyes aplicables.</li>
+                <li><strong>Interferencia Técnica:</strong> Intentos de interferir con el funcionamiento normal del bot.</li>
+                <li><strong>Descontinuación del Servicio:</strong> Decisión de descontinuar el bot por razones comerciales o técnicas.</li>
+            </ul>
+            <p><strong>Efectos de la Terminación:</strong> Al terminar el servicio:</p>
+            <ul>
+                <li>Se revocará inmediatamente el acceso al bot</li>
+                <li>Se eliminarán los datos de usuario asociados (sujeto a políticas de retención)</li>
+                <li>Se notificará a los administradores del servidor sobre la terminación</li>
+            </ul>
+        </div>
+
+        <div class="section" id="seccion10">
+            <h2>10. Ley Aplicable y Jurisdicción</h2>
+            <p>Estos términos de servicio se rigen por las leyes de la jurisdicción donde operan los desarrolladores del bot, sin consideración a los principios de conflicto de leyes.</p>
+            <p><strong>Resolución de Disputas:</strong> Cualquier disputa que surja de estos términos se resolverá mediante:</p>
+            <ul>
+                <li><strong>Negociación Directa:</strong> Intentos de resolver la disputa mediante comunicación directa</li>
+                <li><strong>Mediación:</strong> Si la negociación falla, se buscará resolución mediante mediación</li>
+                <li><strong>Arbitraje:</strong> Como último recurso, se someterá a arbitraje vinculante</li>
+            </ul>
+            <p><strong>Jurisdicción:</strong> Cualquier acción legal relacionada con estos términos se presentará en los tribunales competentes de la jurisdicción aplicable.</p>
+        </div>
+
+        <div class="highlight">
+            <strong>📞 Contacto y Soporte:</strong> Para preguntas sobre estos términos o para reportar violaciones, puede contactarnos a través del bot o en nuestro servidor de Discord oficial.
+        </div>
+
+        <div class="footer">
+            <p><strong>Última actualización:</strong> 24 de Septiembre, 2024</p>
+            <p><strong>Versión:</strong> 2.0</p>
+            <p>© 2024 DoggiBogi Bot. Todos los derechos reservados.</p>
+            <p>Desarrollado con ❤️ para la comunidad de Discord</p>
+            <p><strong>Developer:</strong> Tari</p>
+        </div>
+    </div>
+</body>
+</html>
